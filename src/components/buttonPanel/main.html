@@ -1,0 +1,25 @@
+<div class="button-panel">
+    <div class="buttons">
+        <button ref="addButton"
+                class="button"
+                :class="{disabled: isAddButtonDisabled}"
+                @click="showDropdown"
+        >
+            <i class="mdi mdi-plus-box"/>
+            <div>Create</div>
+        </button>
+        <button
+                class="button"
+                :class="{disabled: isAlignButtonDisabled}"
+                @click="alignWidgets"
+        >
+            <i class="mdi mdi-microsoft"/>
+            <div>Align</div>
+        </button>
+        <dropdown v-if="state.showDropdown"
+                  :state="state"
+                  :position="dropdownPosition"
+                  @select="addNewWidget"/>
+    </div>
+    <div class="title"><h3>Binance currencies</h3></div>
+</div>

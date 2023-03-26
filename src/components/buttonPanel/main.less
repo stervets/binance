@@ -1,0 +1,60 @@
+@import "mixins.less";
+
+.button-panel {
+    color: @white;
+    position: relative;
+
+    .buttons {
+        display: flex;
+        flex-direction: row;
+        background-color: @light;
+        padding: 10px 10px 0 10px;
+        border-radius: 5px 5px 0 0;
+        box-sizing: border-box;
+        width: 210px;
+    }
+
+    .title {
+        text-align: center;
+        pointer-events: none;
+        .absolute();
+        .fullSize();
+    }
+
+    .button {
+        margin-right: 10px;
+        padding: 5px;
+        background-color: @dark;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        outline: none;
+        font-size: 14px;
+        transition: background-color .3s ease, opacity .3s ease;
+        color: @white;
+        min-width: 90px;
+        position: relative;
+        opacity: 1;
+
+        &:hover {
+            background-color: @dark + #111;
+        }
+
+        &.disabled{
+            pointer-events: none;
+            opacity: .5;
+            &:hover {
+                background-color: @dark
+            }
+        }
+
+        i {
+            font-size: 32px;
+        }
+    }
+
+    .material-icons {
+        font-size: 24px;
+        margin-bottom: 5px;
+    }
+}

@@ -1,0 +1,11 @@
+<div class="chat-container" ref="chatContainer">
+    <template v-for="message in messages"
+              :key="message.id">
+        <div class="message" :class="{
+            'from-client': message.isClient,
+            'from-server': !message.isClient
+        }">
+            {{ message.text }}
+        </div>
+    </template>
+</div>

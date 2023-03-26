@@ -1,0 +1,25 @@
+@import url('~roboto-fontface/css/roboto/roboto-fontface.css');
+@import url('@mdi/font/css/materialdesignicons.min.css');
+@import 'mixins.less';
+
+html, body, #app, .main-layout {
+    .fullSize();
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    color: @white;
+    background: linear-gradient(to bottom, @dark - #111, @dark);
+    font-family: 'Roboto-Light', serif;
+    font-size: 12pt;
+}
+
+.main-layout {
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    flex-direction: column;;
+}

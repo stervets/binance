@@ -1,0 +1,8 @@
+[
+    {
+        "command": "window:create:{{currency}}",
+        "sentences": [
+            "w @currency"
+        ]
+    }
+]

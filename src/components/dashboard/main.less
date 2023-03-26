@@ -1,0 +1,34 @@
+@import "mixins.less";
+
+.dashboard {
+    .fullSize();
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    border-radius: 5px;
+    color: @white;
+    background-color: @dark;
+    padding-right: 3px;
+    position: relative;
+
+    .dashboard-background-image {
+        min-height: 100%;
+        width: 100%;
+        .absolute();
+        background: url("public/img/background.png");
+        background-size: 100%;
+    }
+
+    .dashboard-grid {
+        min-height: 100%;
+        width: 100%;
+        .absolute();
+        background: url("public/img/cell.png");
+        opacity: 0;
+        transition: opacity .3s ease;
+
+        &.show {
+            opacity: .1;
+        }
+    }
+}

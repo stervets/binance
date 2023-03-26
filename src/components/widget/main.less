@@ -1,0 +1,111 @@
+@import "mixins.less";
+
+.widget-container {
+    .absolute();
+    box-sizing: border-box;
+    padding: 2px;
+    z-index: 2;
+    opacity: 0;
+
+    &.animated {
+        transition: left .3s ease,
+        top .3s ease,
+        width .3s ease,
+        height .3s ease,
+        opacity .3s ease;
+        z-index: 1;
+    }
+
+    &.opened {
+        opacity: 1;
+    }
+
+    &.closing {
+        opacity: 0;
+    }
+
+    .widget {
+        .fullSize();
+        background-color: @light;
+        border-radius: 5px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #515556;
+        box-sizing: border-box;
+
+        .widget-title {
+            user-select: none;
+            cursor: move;
+            height: 20px;
+            display: flex;
+            color: @white;
+            background-color: @dark;
+            padding: 5px;
+            padding-left: 10px;
+
+            .widget-title-text {
+                flex-grow: 1;
+                white-space: nowrap;
+                overflow: hidden;
+                margin-right: 10px;
+                text-overflow: ellipsis;
+            }
+
+            .price{
+                font-family: Roboto-Bold;
+            }
+        }
+
+        .widget-content {
+            flex-grow: 1;
+            width: 100%;
+            height: ~"calc(100% - 30px)";
+            overflow: hidden;
+            opacity: 1;
+            transition: opacity .3s ease;
+
+            &.resizing {
+                opacity: 0;
+            }
+        }
+
+        .widget-resize {
+            position: absolute;
+            bottom: 2px;
+            right: 5px;
+            cursor: nwse-resize;
+        }
+
+        .mdi-close-box {
+            cursor: pointer;
+        }
+    }
+
+    .widget-moving-tip {
+        position: absolute;
+        min-width: 60px;
+        background-color: @dark;
+        padding: 5px;
+        border: 1px solid @white;
+        border-radius: 5px;
+        text-align: center;
+        top: 35px;
+        left: 0;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity .3s ease;
+        font-family: monospace;
+
+        &.show {
+            opacity: 1;
+        }
+
+        &.resize {
+            bottom: 30px !important;
+            left: initial !important;
+            top: initial !important;
+            right: 0 !important;
+        }
+    }
+}

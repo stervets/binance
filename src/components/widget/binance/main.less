@@ -1,0 +1,36 @@
+@import "mixins.less";
+
+.widget-binance {
+    .fullSize();
+    position: relative;
+    padding: 10px;
+
+    .widget-binance-chart {
+        .fullSize();
+        opacity: 0;
+        transition: opacity .3s ease;
+        &.loaded {
+            opacity: 1;
+        }
+    }
+
+    .widget-binance-loading {
+        .absolute();
+        .fullSize();
+        background-color: @light;
+        display: flex;
+        align-items: center;
+        transition: opacity .3s ease;
+        opacity: 1;
+
+        &.loaded {
+            opacity: 0;
+        }
+
+        img {
+            width: 50px;
+            margin: 0 auto;
+            opacity: .4;
+        }
+    }
+}

@@ -1,0 +1,15 @@
+<div class="dashboard-layout" v-if="isReady">
+    <ButtonPanelView ref="panel"
+                     @alignWidgets="alignWidgets"
+                     @addNewWidget="onAddNewWidget"
+    />
+    <CentralBlock>
+        <DashboardView ref="dash"
+                       class="dashboard-component"
+                       @widgetsLoaded="onWidgetsLoaded"
+                       @deleteWidget="onDeleteWidget"
+                       @disableAlignButton="disableAlignButton"
+        />
+        <InputView @message="onMessage" />
+    </CentralBlock>
+</div>

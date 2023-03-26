@@ -1,0 +1,7 @@
+<div class="dropdown" :style="{ left: position.left + 'px', top: position.top + 'px' }">
+    <ul>
+        <template v-for="title of sortedItems" :key="title">
+            <li @mouseup="select(revertedItems[title])">{{ title }}</li>
+        </template>
+    </ul>
+</div>

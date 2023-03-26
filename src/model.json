@@ -1,0 +1,162 @@
+{
+  "settings": {
+    "languages": [
+      "ru"
+    ],
+    "tag": "nlp",
+    "threshold": 0.5,
+    "autoLoad": true,
+    "autoSave": true,
+    "modelFileName": "model.nlp",
+    "executeActionsBeforeAnswers": false,
+    "calculateSentiment": true
+  },
+  "nluManager": {
+    "settings": {
+      "tag": "nlu-manager"
+    },
+    "locales": [
+      "ru"
+    ],
+    "languageNames": {},
+    "domainManagers": {
+      "ru": {
+        "settings": {
+          "locale": "ru",
+          "trainByDomain": false,
+          "tag": "domain-manager-ru",
+          "nluByDomain": {
+            "default": {
+              "className": "NeuralNlu",
+              "settings": {}
+            }
+          },
+          "useStemDict": true
+        },
+        "stemDict": {
+          "@currency,w": {
+            "intent": "window:create:{{currency}}",
+            "domain": "default"
+          }
+        },
+        "intentDict": {
+          "window:create:{{currency}}": "default"
+        },
+        "sentences": [
+          {
+            "domain": "default",
+            "utterance": "w @currency",
+            "intent": "window:create:{{currency}}"
+          }
+        ],
+        "domains": {
+          "master_domain": {
+            "settings": {
+              "locale": "ru",
+              "tag": "nlu-ru",
+              "keepStopwords": true,
+              "nonefeatureValue": 1,
+              "nonedeltaMultiplier": 1.2,
+              "spellCheck": false,
+              "spellCheckDistance": 1,
+              "filterZeros": true,
+              "log": true
+            },
+            "features": {
+              "w": 1,
+              "@currency": 1
+            },
+            "intents": {
+              "window:create:{{currency}}": 1
+            },
+            "intentFeatures": {
+              "window:create:{{currency}}": {
+                "w": 1,
+                "@currency": 1
+              }
+            },
+            "featuresToIntent": {
+              "w": [
+                "window:create:{{currency}}"
+              ],
+              "@currency": [
+                "window:create:{{currency}}"
+              ]
+            },
+            "neuralNetwork": {
+              "settings": {
+                "locale": "ru",
+                "tag": "nlu-ru",
+                "keepStopwords": true,
+                "nonefeatureValue": 1,
+                "nonedeltaMultiplier": 1.2,
+                "spellCheck": false,
+                "spellCheckDistance": 1,
+                "filterZeros": true,
+                "log": true
+              },
+              "features": [
+                "w",
+                "@currency"
+              ],
+              "intents": [
+                "window:create:{{currency}}"
+              ],
+              "perceptrons": [
+                [
+                  5.692978382110596,
+                  5.692978382110596,
+                  2.8527748842713336
+                ]
+              ]
+            }
+          }
+        }
+      }
+    },
+    "intentDomains": {},
+    "extraSentences": [
+      [
+        "ru",
+        "w @currency"
+      ]
+    ]
+  },
+  "ner": {
+    "settings": {
+      "tag": "ner",
+      "entityPreffix": "%",
+      "entitySuffix": "%"
+    },
+    "rules": {
+      "ru": {
+        "currency": {
+          "name": "currency",
+          "type": "enum",
+          "rules": [
+            {
+              "option": "currency",
+              "texts": [
+                "EUR",
+                "USD"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "nlgManager": {
+    "settings": {
+      "tag": "nlg-manager"
+    },
+    "responses": {}
+  },
+  "actionManager": {
+    "settings": {
+      "tag": "action-manager"
+    },
+    "actions": {}
+  },
+  "slotManager": {}
+}

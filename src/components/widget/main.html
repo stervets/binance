@@ -1,0 +1,28 @@
+<div class="widget-container"
+     :style="`left: ${left}px; top: ${top}px; width: ${width}px; height: ${height}px;`"
+     :class="{
+         animated: !movingWidget.id,
+         closing: isClosing,
+         opened: isOpened
+     }">
+    <div class="widget">
+        <div class="widget-title" ref="widgetTitle">
+            <div class="widget-title-text" v-html="title"/>
+            <div class="widget-controls">
+                <i class="mdi mdi-close-box" @click="onClose" @mousedown.prevent/>
+            </div>
+        </div>
+        <div class="widget-content" :class="{resizing}">
+            <component :is="content" :widgetView="this" ref="widgetContent"/>
+        </div>
+        <div class="widget-resize" ref="resize">
+            <i class="mdi mdi-resize-bottom-right"/>
+        </div>
+    </div>
+    <div class="widget-moving-tip"
+         :class="{show: movingWidget.id, resize: resizing}"
+         ref="tip"
+    >
+        {{ movingTip }}
+    </div>
+</div>

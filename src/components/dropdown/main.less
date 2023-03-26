@@ -1,0 +1,28 @@
+@import "mixins.less";
+
+.dropdown {
+    position: absolute;
+    z-index: 1000;
+    background-color: @dark;
+    border: 1px solid @light;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    color: @white;
+    min-width: 150px;
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+                background-color: @dark + #111;
+            }
+        }
+    }
+}

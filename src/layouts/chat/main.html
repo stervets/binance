@@ -1,0 +1,6 @@
+<div class="chat-layout" v-show="isReady">
+    <CentralBlock class="chat-central-block">
+        <ChatView ref="chat"/>
+        <InputView @message="onMessage" />
+    </CentralBlock>
+</div>
