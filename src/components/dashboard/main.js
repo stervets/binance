@@ -98,11 +98,17 @@ export default {
             }
         },
 
-        onResize() {
+        async onResize() {
             this.state.tableWidth = this.$$el.width();
             this.state.cellWidth  = this.state.tableWidth / config.TABLE_WIDTH;
             this.$grid.css('background-size', this.state.cellWidth);
             $(this.$refs.image).height(this.$el.scrollHeight);
+            for(let id in this.widgets){
+                let widget = this.getWidgetView(id);
+                widget && widget.onResize();
+                console.log(id, widget.onResize);
+                await _.timeout(100);
+            }
         },
 
         correctHeight() {
@@ -153,7 +159,7 @@ export default {
         },
 
         async addNewWidget(value) {
-            let w = 17, h = 9;
+            let w = 12, h = 8;
             if (value === 'help') {
                 w *= 2;
                 h *= 2;

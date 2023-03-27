@@ -4,7 +4,7 @@ import roboto from 'roboto-fontface';
 import BaseClass from './classes/baseClass';
 
 let config = {
-    TABLE_WIDTH      : 51,
+    TABLE_WIDTH      : 36,
     MIN_WIDGET_WIDTH : 8,
     MIN_WIDGET_HEIGHT: 5,
     MAX_DATA_LENGTH  : 100,

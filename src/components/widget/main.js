@@ -128,12 +128,16 @@ export default {
             this.forceMoveToOwnPlace();
         },
 
+        onResize() {
+            this.$refs.widgetContent.onResize && this.$refs.widgetContent.onResize();
+        },
+
         async forceMoveToOwnPlace() {
             this.movingWidget = _.pick(this.widget, 'x', 'y', 'w', 'h');
             await nextTick();
             this.movingWidget = {};
             await _.timeout(300);
-            this.$refs.widgetContent.onResize && this.$refs.widgetContent.onResize();
+            this.onResize();
             this.resizing = false;
         },
 
