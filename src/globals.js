@@ -24,8 +24,7 @@ let config = {
         uni  : 'Uniswap',
         link : 'Chainlink',
         matic: 'Polygon',
-        bnx  : 'BinaryX',
-        //help : 'Help Widget'
+        bnx  : 'BinaryX'
     }
 };
 
