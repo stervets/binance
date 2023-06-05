@@ -66,12 +66,6 @@ export default {
 
         alignWidgets() {
             this.$emit('alignWidgets');
-        },
-
-        updateDropdownPosition() {
-            //const dropdownButtonRect = this.$refs.dropdownButton.getBoundingClientRect();
-            //this.dropdownPosition.left = dropdownButtonRect.left;
-            //this.dropdownPosition.top = dropdownButtonRect.bottom;
-        },
+        }
     }
 };

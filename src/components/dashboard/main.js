@@ -195,7 +195,7 @@ export default {
                 widgets   : _.values(this.widgets),
                 tableWidth: config.TABLE_WIDTH
             });
-            this.saveWidgets(noSaveWidgets);
+            return this.saveWidgets(noSaveWidgets);
         },
 
         moveWidgets(data) {
@@ -230,7 +230,7 @@ export default {
             }, {});
 
             let isEmptyData = _.isEmpty(data);
-            this.$emit('disableAlignButton', isEmptyData);
+            this.$emit('toggleAlignButton', isEmptyData);
 
             if (!isEmptyData && !noSaveWidgets) {
                 this.correctHeight();
@@ -241,7 +241,7 @@ export default {
         deleteWidget(id) {
             this.$emit('deleteWidget', this.widgets[id]);
             delete this.widgets[id];
-            this.$emit('disableAlignButton', false);
+            this.$emit('toggleAlignButton', false);
             return remove(dbReference(this.db, `/${config.userId}/widgets/${id}`));
         },
 

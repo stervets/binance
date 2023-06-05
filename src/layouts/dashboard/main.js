@@ -1,37 +1,29 @@
 import CentralBlock from 'components/central-block/main.vue';
-import InputView from 'components/input/main.vue';
 import DashboardView from 'components/dashboard/main.vue';
 import ButtonPanelView from 'components/buttonPanel/main.vue';
-import NLP from 'classes/nlp';
 import { ref } from 'vue';
 
 export default {
     components: {
         CentralBlock,
-        InputView,
         DashboardView,
         ButtonPanelView
     },
 
     setup() {
         return {
-            nlp    : new NLP(),
             isReady: ref(false)
         };
     },
 
     async mounted() {
-        await this.nlp.loadModel();
         this.isReady = true;
     },
 
     methods: {
-        async onMessage(text) {
-            console.log(text);
-        },
-
         async alignWidgets() {
-            this.$refs.dash.alignWidgets();
+            await this.$refs.dash.alignWidgets();
+            this.toggleAlignButton(true);
         },
 
         onWidgetsLoaded(widgets) {
@@ -50,7 +42,7 @@ export default {
             this.$refs.panel.moveToShown(widget.data.coin);
         },
 
-        disableAlignButton(isAlignButtonDisabled) {
+        toggleAlignButton(isAlignButtonDisabled) {
             this.$refs.panel.isAlignButtonDisabled = isAlignButtonDisabled;
         }
     }

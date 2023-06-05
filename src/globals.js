@@ -1,7 +1,6 @@
 import _ from 'underscore';
 import $ from 'jquery';
 import roboto from 'roboto-fontface';
-import BaseClass from './classes/baseClass';
 
 let config = {
     TABLE_WIDTH      : 36,
@@ -119,5 +118,5 @@ if (!config.userId) {
     localStorage.setItem('userId', config.userId);
 }
 
-let globals = { _, $, BaseClass, config };
+let globals = { _, $, config };
 _.extend(globalThis, globals);

@@ -1,7 +1,6 @@
-export default class Binance extends BaseClass {
+export class Binance {
 
     constructor(coin, handler) {
-        super();
         let MAX_DATA_LENGTH = 20;
         this.ws = new WebSocket(`wss://stream.binance.com:9443/ws/${coin}usdt@trade`);
 
